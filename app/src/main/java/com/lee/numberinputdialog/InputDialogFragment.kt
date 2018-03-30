@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.lee.numberinputdialog.input.Input
+import com.lee.numberinputdialog.input.InputCallback
 import kotlinx.android.synthetic.main.fragment_input_dialog.*
 
 /**
@@ -19,15 +20,17 @@ import kotlinx.android.synthetic.main.fragment_input_dialog.*
  */
 class InputDialogFragment : DialogFragment(), TextWatcher {
 
+    private var callback: InputCallback? = null
     private var input: Input? = null
     private var max: Double = 0.0
     private var min: Double = 0.0
 
     companion object {
-        fun newInstance(input: Input): InputDialogFragment {
+        fun newInstance(input: Input, callback: InputCallback): InputDialogFragment {
             val fragment = InputDialogFragment()
             val args = Bundle()
             args.putSerializable("input", input)
+            fragment.callback = callback
             fragment.arguments = args
             fragment.isCancelable = false
             fragment.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.MyDialog)
@@ -58,7 +61,7 @@ class InputDialogFragment : DialogFragment(), TextWatcher {
         textLayout.hint = hint
         canBtn.setOnClickListener { _ -> dismiss() }
         okBtn.setOnClickListener { _ ->
-            input?.callback?.onInputFinished(editText.text.toString().toDouble())
+            callback?.onInputFinished(editText.text.toString().toDouble())
             dismiss()
         }
     }
