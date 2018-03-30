@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity(), InputCallback {
 
         fab.setOnClickListener { _ ->
             val input = Input("Title", this)
-            input.max = 100.0
-            input.min = 0.0
-            input.def = textView.text.toString()
+            input.max = 100.0 //max limit
+            input.min = 0.0 //min limit
+            input.def = textView.text.toString() //default value
             val fragment = InputDialogFragment.newInstance(input)
-            fragment.show(supportFragmentManager, "MainActivity")
+            fragment.show(supportFragmentManager, "InputDialogFragment")
         }
     }
 
