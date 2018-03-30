@@ -38,7 +38,7 @@ class InputDialogFragment : DialogFragment(), TextWatcher {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            input = (arguments as Bundle).getSerializable("input") as Input
+            input = arguments!!.getSerializable("input") as Input
         }
     }
 
@@ -55,7 +55,6 @@ class InputDialogFragment : DialogFragment(), TextWatcher {
         titleText.text = input?.title
         editText.addTextChangedListener(this)
         editText.setText(input?.def)
-//        editText.hint = hint
         textLayout.hint = hint
         canBtn.setOnClickListener { _ -> dismiss() }
         okBtn.setOnClickListener { _ ->
