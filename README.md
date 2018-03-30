@@ -1,6 +1,10 @@
 # NumberInputDialog
 Provide a dialog for number input with range prompt.
 
+![Alt text](https://github.com/littlemozart/NumberInputDialog/edit/master/1.png)
+![Alt text](https://github.com/littlemozart/NumberInputDialog/edit/master/2.png)
+![Alt text](https://github.com/littlemozart/NumberInputDialog/edit/master/3.png)
+
 ## Usage
 ```
 fab.setOnClickListener { _ ->
