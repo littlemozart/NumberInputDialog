@@ -1,5 +1,5 @@
 # NumberInputDialog
-Provide a dialog from number input with range prompt.
+Provide a dialog for number input with range prompt.
 
 ## Usage
 ```
